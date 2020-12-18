@@ -85,7 +85,7 @@
     "coincodex",
     "coinranking",
     "helpers/reference-data-reader",
-    "derbit"
+    "deribit"
   ],
   "scripts": {
     "lint": "yarn workspaces run lint",
