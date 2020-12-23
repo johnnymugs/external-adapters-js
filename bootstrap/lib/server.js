@@ -19,6 +19,7 @@ const initHandler = (execute, checkHealth = notImplementedHealthCheck) => () => 
   app.use(express.json())
 
   app.post('/', (req, res) => {
+    console.log(">>>>>>>>>>>>>>>>>EEEEEEEEEEEEEEEE\n")
     if (!req.is(CONTENT_TYPE_APPLICATION_JSON)) {
       return res
         .status(HTTP_ERROR_UNSUPPORTED_MEDIA_TYPE)

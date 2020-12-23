@@ -56,10 +56,15 @@ Returns 404 for unknown/unregistered pairs
 - Run redis:
 
 ```bash
-docker run -p 6379:6379 --name ea-redis -d redis redis-server
+docker run -p 6379:6379 --name ea-redis -d redis redis-server --requirepass imlonkfrompennsylvania
 ```
 
-- Build and run the EA locally (see README in the root of this project)
+- Build and run the EA locally (see README in the root of this project, don't forget the redis password!)
+
+```bash
+make docker adapter=chainlonk
+docker run -p 8080:8080 -e CACHE_REDIS_PASSWORD='imlonkfrompennsylvania' -it chainlonk-adapter:latest
+```
 
 - Set a pair up
 

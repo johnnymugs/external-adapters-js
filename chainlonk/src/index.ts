@@ -3,4 +3,5 @@ import { execute } from './adapter'
 
 const NAME = 'chainlonk'
 
+console.log(">>>>>>>>>>>>>>>>>>>>>>>AAAAAAAAAAAA\n")
 export = { NAME, execute, ...expose(util.wrapExecute(execute)) }
