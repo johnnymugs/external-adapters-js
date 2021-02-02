@@ -5,7 +5,7 @@ You can use this to test that contracts or alerts behave as expected in a test o
 
 # REST API
 
-## POST `/pair`
+## POST `/pairs`
 
 Registers a currency pair for querying
 
@@ -16,13 +16,13 @@ Params:
 - `currentPrice`: Set the current price for the pair (optional, defaults to 100)
 
 ```bash
-curl -H 'Content-Type: application/json' -d '{"from":"LONK", "to":"USD", "currentPrice":666}' localhost:8080/pairs
+curl -H 'Content-Type: application/json' -X POST -d '{"from":"LONK", "to":"USD", "currentPrice":666}' localhost:8080/pairs
 ```
 
 Returns 201 when created
 Returns 422 when already exists
 
-## PUT `/pair/<from>-<to>/`
+## PUT `/pairs/<from>-<to>/`
 
 Update pair attributes
 
@@ -36,7 +36,7 @@ Returns 200 on success
 Returns 404 for a non-existent pair
 Returns 422 on any validation errors
 
-## DELETE `/pair/<from>-<to>/`
+## DELETE `/pairs/<from>-<to>/`
 
 Unregisters a given pair.
 
@@ -85,3 +85,10 @@ docker run -p 6379:6379 --name ea-redis -d redis redis-server --requirepass imlo
 make docker adapter=chainlonk
 docker run -p 8080:8080 -e CACHE_REDIS_PASSWORD='imlonkfrompennsylvania' -it chainlonk-adapter:latest
 ```
+
+## TODO
+
+- write POST / endpoint, write POST /pairs/ endpoint
+- connect to redis
+- write other endpoints
+- health check
