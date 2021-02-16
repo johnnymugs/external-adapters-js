@@ -20,6 +20,7 @@ declare module '@chainlink/types' {
   export type Callback = (statusCode: number, data?: any) => void
   export type AdapterHealthCheck = (callback: Callback) => any
 
+  import type { ExecuteHandlers } from '@chainlink/ea-bootstrap/src'
   import { AxiosRequestConfig } from 'axios'
   export type Config = {
     apiKey?: string
@@ -85,7 +86,6 @@ declare module '@chainlink/types' {
 
   export type ConfigFactory = (prefix?: string) => Config
 
-  import type { ExecuteHandlers } from '@chainlink/ea-bootstrap/src'
   export type AdapterImplementation = {
     NAME: string
     makeExecute: ExecuteFactory
@@ -103,6 +103,6 @@ declare module '@chainlink/types' {
     warning?: string
   }
 }
-declare module '@chainlink/ea-bootstrap'
+declare module 'defaultOptions'
 declare module '@chainlink/external-adapter'
 declare module 'object-path'

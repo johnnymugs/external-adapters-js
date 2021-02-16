@@ -1,16 +1,16 @@
-import { Requester, logger } from '@chainlink/external-adapter'
-import { types } from 'util'
-import { withCache, defaultOptions, redactOptions } from './lib/cache'
-import * as util from './lib/util'
-import * as server from './lib/server'
-import * as gcp from './lib/gcp'
-import * as aws from './lib/aws'
+import { logger, Requester } from '@chainlink/external-adapter'
 import {
-  ExecuteSync,
-  AdapterRequest,
-  ExecuteWrappedResponse,
-  AdapterHealthCheck,
+  AdapterHealthCheck, AdapterRequest, ExecuteSync,
+
+  ExecuteWrappedResponse
 } from '@chainlink/types'
+import { types } from 'util'
+import * as aws from './lib/aws'
+import * as cache from './lib/cache'
+import { defaultOptions, redactOptions, withCache } from './lib/cache'
+import * as gcp from './lib/gcp'
+import * as server from './lib/server'
+import * as util from './lib/util'
 
 type Middleware = (execute: ExecuteWrappedResponse) => Promise<ExecuteWrappedResponse>
 
@@ -110,3 +110,4 @@ const cacheOptions = defaultOptions()
 if (cacheOptions.enabled) logger.info('Cache enabled: ', redactOptions(cacheOptions))
 
 export { util }
+export import defaultCacheOptions = cache.defaultOptions // TODO: not like this...

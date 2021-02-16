@@ -88,7 +88,7 @@ docker run -p 8080:8080 -e CACHE_REDIS_PASSWORD='imlonkfrompennsylvania' -it cha
 
 ## TODO
 
-- write POST / endpoint, write POST /pairs/ endpoint
-- connect to redis
-- write other endpoints
-- health check
+- write POST / endpoint, write POST /pairs/ endpoint -- DONE
+- connect to redis -- DONE?
+- write other endpoints -- DONE
+- health check -- DONE
